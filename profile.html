@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=8"/>
+    <title>Interview It</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/jNice.css" />
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script> 
+    <script type="text/javascript" src="js/jquery.jNice.js"></script> 
+    <!--[if IE]><script type="text/javascript" src="js/box-shadow.min.js"></script><![endif]-->
+    
+	<script>
+		$(document).ready(function() {
+			$(".menu_item").click(function(){
+				$(".menu_item").removeClass("active");
+				$(".menu_item span").hide();
+				$(this).addClass("active");
+				$(this).next().children("span").css({"display":"block"});
+				return false
+			});
+			
+			var content_height = $(document).height() - $("#header").height() - $("#footer").height() - $(".user_block").height() - 28;
+			$("#main").css({"min-height": content_height});
+			
+			
+			$(".profile_edit_form a").click(function(){
+				$(this).parents("dl").next().slideToggle();
+				return false
+			});
+			
+			$(".pass_data .jNiceCheckbox").click(function(){
+				$(this).parents("dl").next().slideToggle();
+			});
+
+			$(".registration").click(function(){
+				$(this).toggleClass("active");
+				$(".menu_item").removeClass("active");
+				$(".menu_item span").hide();
+				return false
+			});
+			
+
+			$("input[type=text], textarea").each(function () {
+				var default_value = this.value;
+				$(this).css('color', '#808080'); // this could be in the style sheet instead
+				$(this).focus(function () {
+					if (this.value == default_value) {
+						this.value = '';
+						$(this).css('color', '#555');
+					}
+				});
+				$(this).blur(function () {
+					if (this.value == '') {
+						$(this).css('color', '#808080');
+						this.value = default_value;
+					}
+				});
+			});
+			
+		});		
+	</script>
+</head>
+<body>
+	<div id="page">
+        <!-- header -->
+        <div id="header">
+            <!-- logo -->
+            <h1 class="logo"><a href="#">Interview It</a></h1>
+            <!-- end logo -->
+        	<div class="header_nav">
+            	<div class="header_nav_ins">
+                	<div class="wrapper">
+                    	<!-- main menu -->
+                    	<ul id="nav">
+                        	<li class="menu_item active">
+                            	<a href="">Главная</a>
+                                <span class="item_shadow"></span>
+                            </li>
+                            <li class="menu_item">
+                            	<a href="">О нас</a>
+                                <span class="item_shadow" style="display: block"></span>
+                            </li>
+                            <li class="menu_item">
+                            	<a href="">История создания</a>
+                                <span class="item_shadow"></span>
+                            </li>
+                        </ul>
+                    	<!-- end main menu -->
+                        
+                        <!-- registration button -->
+                        <a href="" class="registration">Регистрация</a>
+                        <!-- end registration button -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end header -->
+        
+        <!-- user block -->
+        <div class="user_block">
+        	<div class="user_block_left">
+            	<div class="user_block_right">
+                	<!-- login form -->
+                	<div class="login_form logged">
+                    	<div class="user_photo">
+                        	<img alt="" src="img/user_m.jpg" />
+                        </div>
+                        <div class="user_name">
+                        	<a href="" class="user_name_link">Кукучин Виктор</a>
+                        	<a href="" class="quiz_link">Пройти quiz (underline)</a>
+                        </div>
+                        <a href="" class="logout">Вход</a>
+                    </div>
+                	<!-- end login form -->
+                </div>
+            </div>
+        </div>
+        <!-- end user block -->
+        
+        <!-- main -->
+        <div id="main">
+        	<div class="profile_page">
+            	<!-- photo -->
+            	<div class="profile_photo">
+                	<img width="385" height="405" alt="" src="img/big_photo_m.jpg" />
+                    <a href="">Загрузить новую фотографию</a>
+                </div>
+            	<!-- end photo -->
+
+            	<!-- form -->
+                <div class="profile_edit_form">
+                    <form class="jNice">
+                        <fieldset class="login_data">
+                        	<dl>
+                            	<dt>Логин: </dt><dd><a href="" class="edit_link">kkukukukukukuku</a></dd>
+                            </dl>
+                            <div class="edit_block">
+                                <input type="text" class="text_inp" placeholder="Логин" />
+                                <button>Отправить</button>
+                            </div>    
+                        </fieldset>    
+                        <fieldset class="name_data">
+                        	<dl>
+                            	<dt>Имя пользователя: </dt><dd><a href="" class="edit_link">kkukukukukukuku</a></dd>
+                            </dl>
+                            <div class="edit_block">
+                                <input type="text" class="text_inp" placeholder="Имя пользователя" />
+                                <button>Отправить</button>
+                            </div>    
+                        </fieldset>    
+                        <fieldset class="email_data">
+                        	<dl>
+                            	<dt>Email: </dt><dd><a href="" class="edit_link">kkukukukukukuku</a></dd>
+                            </dl>
+                            <div class="edit_block">
+                                <input type="text" class="text_inp" placeholder="Email" />
+                                <button>Отправить</button>
+                            </div>    
+                        </fieldset>    
+                        <fieldset class="sex_data">
+                            <label>Пол</label>
+                            <input type="radio" name="sex" id="male" /><span class="label">M</span>
+                            <input type="radio" name="sex" id="female" /><span class="label">Ж</span>
+                        </fieldset>    
+                        <fieldset class="pass_data">
+                        	<dl>
+                            	<dt><input type="checkbox" name="change_pass" /> </dt><dd>Изменить пароль</dd>
+                            </dl>
+                            <div class="edit_block change_pass">
+                                <input type="text" class="text_inp" placeholder="Старый пароль" /><br>
+                                <input type="text" class="text_inp" placeholder="Новый пароль" /><br>
+                                <input type="text" class="text_inp" placeholder="Новый пароль" />
+                                <button>Отправить</button>
+                            </div>    
+                        </fieldset>    
+                    </form>
+                </div>
+            	<!-- end form -->
+                
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!-- end main -->
+        
+        <div id="empty"></div>
+        <div id="footer">
+        	<div class="footer_ins">&nbsp;</div>
+        </div>
+    </div>
+<!-- feedback -->
+<div class="feedback_form">
+	<a href="" class="feedback_link"><span>Напишите свой отзыв, мы его рассмотрим!</span></a>
+    <div class="fbd_form">
+    	<textarea placeholder="Введите текст сообщения..."></textarea>
+        <input type="text" class="text_inp" placeholder="E-mail" />
+        <button>Отправить</button>
+    </div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$(".feedback_link").toggle(
+			function(){
+				$(this).animate({
+					'width': 260
+				}).addClass("feedback_header");
+				$(".fbd_form").delay(500).slideDown();
+				return false
+			},
+			function(){
+				$(".fbd_form").slideUp();
+				$(this).delay(500).animate({
+					'width': 39
+				},function(){$(this).removeClass("feedback_header")});
+				
+				return false
+			}
+		);
+	});		
+</script>
+
+</body>
+</html>

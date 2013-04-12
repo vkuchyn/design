@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=8"/>
+    <title>Interview It</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/jNice.css" />
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script> 
+    <script type="text/javascript" src="js/jquery.jNice.js"></script> 
+    <!--[if IE]><script type="text/javascript" src="js/box-shadow.min.js"></script><![endif]-->
+	<script type="text/javascript" src="js/jquery.fancybox.js?v=2.1.4"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css?v=2.1.4" media="screen" />
+	<script>
+		$(document).ready(function() {
+			$(".menu_item").click(function(){
+				$(".menu_item").removeClass("active");
+				$(".menu_item span").hide();
+				$(this).addClass("active");
+				$(this).next().children("span").css({"display":"block"});
+				return false
+			});
+			
+			var content_height = $(document).height() - $("#header").height() - $("#footer").height() - $(".user_block").height() - 28;
+			$("#main").css({"min-height": content_height});
+			
+			
+			$(".profile_edit_form a").click(function(){
+				$(this).parents("dl").next().slideToggle();
+				return false
+			});
+			
+			$(".pass_data .jNiceCheckbox").click(function(){
+				$(this).parents("dl").next().slideToggle();
+			});
+			
+			$('.fancybox').fancybox();
+
+			$(".registration").click(function(){
+				$(this).toggleClass("active");
+				$(".menu_item").removeClass("active");
+				$(".menu_item span").hide();
+				return false
+			})
+
+
+			$("input[type=text], textarea").each(function () {
+				var default_value = this.value;
+				$(this).css('color', '#808080'); // this could be in the style sheet instead
+				$(this).focus(function () {
+					if (this.value == default_value) {
+						this.value = '';
+						$(this).css('color', '#555');
+					}
+				});
+				$(this).blur(function () {
+					if (this.value == '') {
+						$(this).css('color', '#808080');
+						this.value = default_value;
+					}
+				});
+			});
+			
+		});		
+	</script>
+</head>
+<body>
+	<div id="page">
+        <!-- header -->
+        <div id="header">
+            <!-- logo -->
+            <h1 class="logo"><a href="#">Interview It</a></h1>
+            <!-- end logo -->
+        	<div class="header_nav">
+            	<div class="header_nav_ins">
+                	<div class="wrapper">
+                    	<!-- main menu -->
+                    	<ul id="nav">
+                        	<li class="menu_item active">
+                            	<a href="">Главная</a>
+                                <span class="item_shadow"></span>
+                            </li>
+                            <li class="menu_item">
+                            	<a href="">О нас</a>
+                                <span class="item_shadow" style="display: block"></span>
+                            </li>
+                            <li class="menu_item">
+                            	<a href="">История создания</a>
+                                <span class="item_shadow"></span>
+                            </li>
+                        </ul>
+                    	<!-- end main menu -->
+                        
+                        <!-- registration button -->
+                        <a href="" class="registration">Регистрация</a>
+                        <!-- end registration button -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end header -->
+        
+        <!-- user block -->
+        <div class="user_block">
+        	<div class="user_block_left">
+            	<div class="user_block_right">
+                	<!-- login form -->
+                	<div class="login_form logged">
+                    	<div class="user_photo">
+                        	<img alt="" src="img/user_m.jpg" />
+                        </div>
+                        <div class="user_name">
+                        	<a href="" class="user_name_link">Кукучин Виктор</a>
+                        	<a href="" class="quiz_link">Пройти quiz (underline)</a>
+                        </div>
+                        <a href="" class="logout">Вход</a>
+                    </div>
+                	<!-- end login form -->
+                </div>
+            </div>
+        </div>
+        <!-- end user block -->
+        
+        <!-- main -->
+        <div id="main" class="your_interview">
+        	<!-- your interview -->
+            <h1>
+            	<a href="#add_smth" class="add_interview fancybox">Добавить собеседование</a>
+            	Список Ваших собеседований
+            </h1>
+            <div class="clear"></div>
+            <!-- add form -->
+            <div id="add_smth">
+            	<form action="">
+                	<div class="field">
+                    	<select>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        	<option value="Выберите город...">Выберите город...</option>
+                        </select>
+                    </div>
+
+                	<div class="field">
+                    	<select>
+                        	<option value="Выберите компанию...">Выберите компанию...</option>
+                        	<option value="Выберите компанию...">Выберите компанию...</option>
+                        	<option value="Выберите компанию...">Выберите компанию...</option>
+                        	<option value="Выберите компанию...">Выберите компанию...</option>
+                        	<option value="Выберите компанию...">Выберите компанию...</option>
+                        </select>
+                    </div>
+
+                	<div class="field">
+                    	<select>
+                        	<option value="Выберите должность...">Выберите должность...</option>
+                        	<option value="Выберите должность...">Выберите должность...</option>
+                        	<option value="Выберите должность...">Выберите должность...</option>
+                        	<option value="Выберите должность...">Выберите должность...</option>
+                        	<option value="Выберите должность...">Выберите должность...</option>
+                        </select>
+                    </div>                
+
+                	<div class="field">
+                    	<select>
+                        	<option value="Выберите технологию...">Выберите технологию...</option>
+                        	<option value="Выберите технологию...">Выберите технологию...</option>
+                        	<option value="Выберите технологию...">Выберите технологию...</option>
+                        	<option value="Выберите технологию...">Выберите технологию...</option>
+                        	<option value="Выберите технологию...">Выберите технологию...</option>
+                        </select>
+                    </div>                
+
+                	<div class="field">
+                    	<input type="text" class="text_inp" placeholder="Название" />
+                    </div>                
+
+                    <input type="submit" class="add_but" value="Добавить" />               
+                </form>
+            </div>	
+            <!-- end add form -->
+
+
+        	<div class="listing">
+            	<ul>
+                	<!-- one item -->
+                	<li>
+                    	<div class="ins">
+                        	<div class="interview_date">
+                            	23.01.2013
+                            </div>
+                        	<div class="interview_company_logo">
+                            	<img alt="" width="60" height="42" src="img/company_logo2.jpg" />
+                            </div>
+                        	<div class="interview_company_name"><a href="">GlobalLogic</a></div>
+                        	<div class="interview_company_city"><a href="">Днепропетровск</a></div>
+                        	<div class="interview_company_vacancy"><a href="">Senior ruby on rails developer</a></div>
+                        	<div class="interview_questions">
+                            	<span>00</span>
+                                вопросов
+                            </div>
+                        </div>
+                    </li>
+                	<!-- end one item -->
+
+
+                	<!-- one item -->
+                	<li>
+                    	<div class="ins">
+                        	<div class="interview_date">
+                            	23.01.2013
+                            </div>
+                        	<div class="interview_company_logo">
+                            	<img alt="" width="60" height="42" src="img/company_logo2.jpg" />
+                            </div>
+                        	<div class="interview_company_name"><a href="">GlobalLogic</a></div>
+                        	<div class="interview_company_city"><a href="">Днепропетровск</a></div>
+                        	<div class="interview_company_vacancy"><a href="">Senior ruby on rails developer</a></div>
+                        	<div class="interview_questions">
+                            	<span>00</span>
+                                вопросов
+                            </div>
+                        </div>
+                    </li>
+                	<!-- end one item -->
+
+                	<!-- one item -->
+                	<li>
+                    	<div class="ins">
+                        	<div class="interview_date">
+                            	23.01.2013
+                            </div>
+                        	<div class="interview_company_logo">
+                            	<img alt="" width="60" height="42" src="img/company_logo2.jpg" />
+                            </div>
+                        	<div class="interview_company_name"><a href="">GlobalLogic</a></div>
+                        	<div class="interview_company_city"><a href="">Днепропетровск</a></div>
+                        	<div class="interview_company_vacancy"><a href="">Senior ruby on rails developer</a></div>
+                        	<div class="interview_questions">
+                            	<span>00</span>
+                                вопросов
+                            </div>
+                        </div>
+                    </li>
+                	<!-- end one item -->
+
+                	<!-- one item -->
+                	<li>
+                    	<div class="ins">
+                        	<div class="interview_date">
+                            	23.01.2013
+                            </div>
+                        	<div class="interview_company_logo">
+                            	<img alt="" width="60" height="42" src="img/company_logo2.jpg" />
+                            </div>
+                        	<div class="interview_company_name"><a href="">GlobalLogic</a></div>
+                        	<div class="interview_company_city"><a href="">Днепропетровск</a></div>
+                        	<div class="interview_company_vacancy"><a href="">Senior ruby on rails developer</a></div>
+                        	<div class="interview_questions">
+                            	<span>00</span>
+                                вопросов
+                            </div>
+                        </div>
+                    </li>
+                	<!-- end one item -->
+
+                	<!-- one item -->
+                	<li>
+                    	<div class="ins">
+                        	<div class="interview_date">
+                            	23.01.2013
+                            </div>
+                        	<div class="interview_company_logo">
+                            	<img alt="" width="60" height="42" src="img/company_logo2.jpg" />
+                            </div>
+                        	<div class="interview_company_name"><a href="">GlobalLogic</a></div>
+                        	<div class="interview_company_city"><a href="">Днепропетровск</a></div>
+                        	<div class="interview_company_vacancy"><a href="">Senior ruby on rails developer</a></div>
+                        	<div class="interview_questions">
+                            	<span>00</span>
+                                вопросов
+                            </div>
+                        </div>
+                    </li>
+                	<!-- end one item -->
+
+                	<!-- one item -->
+                	<li>
+                    	<div class="ins">
+                        	<div class="interview_date">
+                            	23.01.2013
+                            </div>
+                        	<div class="interview_company_logo">
+                            	<img alt="" width="60" height="42" src="img/company_logo2.jpg" />
+                            </div>
+                        	<div class="interview_company_name"><a href="">GlobalLogic</a></div>
+                        	<div class="interview_company_city"><a href="">Днепропетровск</a></div>
+                        	<div class="interview_company_vacancy"><a href="">Senior ruby on rails developer</a></div>
+                        	<div class="interview_questions">
+                            	<span>00</span>
+                                вопросов
+                            </div>
+                        </div>
+                    </li>
+                	<!-- end one item -->
+
+                	<!-- one item -->
+                	<li>
+                    	<div class="ins">
+                        	<div class="interview_date">
+                            	23.01.2013
+                            </div>
+                        	<div class="interview_company_logo">
+                            	<img alt="" width="60" height="42" src="img/company_logo2.jpg" />
+                            </div>
+                        	<div class="interview_company_name"><a href="">GlobalLogic</a></div>
+                        	<div class="interview_company_city"><a href="">Днепропетровск</a></div>
+                        	<div class="interview_company_vacancy"><a href="">Senior ruby on rails developer</a></div>
+                        	<div class="interview_questions">
+                            	<span>00</span>
+                                вопросов
+                            </div>
+                        </div>
+                    </li>
+                	<!-- end one item -->
+
+                	<!-- one item -->
+                	<li>
+                    	<div class="ins">
+                        	<div class="interview_date">
+                            	23.01.2013
+                            </div>
+                        	<div class="interview_company_logo">
+                            	<img alt="" width="60" height="42" src="img/company_logo2.jpg" />
+                            </div>
+                        	<div class="interview_company_name"><a href="">GlobalLogic</a></div>
+                        	<div class="interview_company_city"><a href="">Днепропетровск</a></div>
+                        	<div class="interview_company_vacancy"><a href="">Senior ruby on rails developer</a></div>
+                        	<div class="interview_questions">
+                            	<span>00</span>
+                                вопросов
+                            </div>
+                        </div>
+                    </li>
+                	<!-- end one item -->
+
+                	<!-- one item -->
+                	<li>
+                    	<div class="ins">
+                        	<div class="interview_date">
+                            	23.01.2013
+                            </div>
+                        	<div class="interview_company_logo">
+                            	<img alt="" width="60" height="42" src="img/company_logo2.jpg" />
+                            </div>
+                        	<div class="interview_company_name"><a href="">GlobalLogic</a></div>
+                        	<div class="interview_company_city"><a href="">Днепропетровск</a></div>
+                        	<div class="interview_company_vacancy"><a href="">Senior ruby on rails developer</a></div>
+                        	<div class="interview_questions">
+                            	<span>00</span>
+                                вопросов
+                            </div>
+                        </div>
+                    </li>
+                	<!-- end one item -->
+
+                	<!-- one item -->
+                	<li>
+                    	<div class="ins">
+                        	<div class="interview_date">
+                            	23.01.2013
+                            </div>
+                        	<div class="interview_company_logo">
+                            	<img alt="" width="60" height="42" src="img/company_logo2.jpg" />
+                            </div>
+                        	<div class="interview_company_name"><a href="">GlobalLogic</a></div>
+                        	<div class="interview_company_city"><a href="">Днепропетровск</a></div>
+                        	<div class="interview_company_vacancy"><a href="">Senior ruby on rails developer</a></div>
+                        	<div class="interview_questions">
+                            	<span>00</span>
+                                вопросов
+                            </div>
+                        </div>
+                    </li>
+                	<!-- end one item -->
+                </ul>
+            </div>
+            <!--  end listing -->
+
+
+                
+            <!-- paginator -->
+            <div class="paginator">
+                <ul>
+                    <li><a href="">&laquo;</a></li>
+                    <li><a href="">&lt;</a></li>
+                    <li><a href="" class="current">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href="">5</a></li>
+                    <li>...</li>
+                    <li><a href="">&gt;</a></li>
+                    <li><a href="">&raquo;</a></li>
+                </ul>
+            </div>
+            <!-- end paginator -->
+        </div>
+        <!-- end main -->
+        
+        <div id="empty"></div>
+        <div id="footer">
+        	<div class="footer_ins">&nbsp;</div>
+        </div>
+    </div>
+
+<!-- feedback -->
+<div class="feedback_form">
+	<a href="" class="feedback_link"><span>Напишите свой отзыв, мы его рассмотрим!</span></a>
+    <div class="fbd_form">
+    	<textarea placeholder="Введите текст сообщения..."></textarea>
+        <input type="text" class="text_inp" placeholder="E-mail" />
+        <button>Отправить</button>
+    </div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$(".feedback_link").toggle(
+			function(){
+				$(this).animate({
+					'width': 260
+				}).addClass("feedback_header");
+				$(".fbd_form").delay(500).slideDown();
+				return false
+			},
+			function(){
+				$(".fbd_form").slideUp();
+				$(this).delay(500).animate({
+					'width': 39
+				},function(){$(this).removeClass("feedback_header")});
+				
+				return false
+			}
+		);
+	});		
+</script>
+
+</body>
+</html>

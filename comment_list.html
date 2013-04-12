@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=8"/>
+    <title>Interview It</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/jNice.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css?v=2.1.4" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.cleditor.css" />
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script> 
+    <script type="text/javascript" src="js/jquery.jNice.js"></script> 
+    <!--[if IE]><script type="text/javascript" src="js/box-shadow.min.js"></script><![endif]-->
+	<script type="text/javascript" src="js/jquery.fancybox.js?v=2.1.4"></script>
+	<script type="text/javascript" src="js/jquery.cleditor.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(".menu_item").click(function(){
+				$(".menu_item").removeClass("active");
+				$(".menu_item span").hide();
+				$(this).addClass("active");
+				$(this).next().children("span").css({"display":"block"});
+				return false
+			});
+			
+			var content_height = $(document).height() - $("#header").height() - $("#footer").height() - $(".user_block").height() - 28;
+			$("#main").css({"min-height": content_height});
+			
+			
+			$(".profile_edit_form a").click(function(){
+				$(this).parents("dl").next().slideToggle();
+				return false
+			});
+			
+			$(".pass_data .jNiceCheckbox").click(function(){
+				$(this).parents("dl").next().slideToggle();
+			});
+			
+			$('.fancybox').fancybox();
+
+			$(".registration").click(function(){
+				$(this).toggleClass("active");
+				$(".menu_item").removeClass("active");
+				$(".menu_item span").hide();
+				return false
+			});
+
+			$("input[type=text], textarea").each(function () {
+				var default_value = this.value;
+				$(this).css('color', '#808080'); // this could be in the style sheet instead
+				$(this).focus(function () {
+					if (this.value == default_value) {
+						this.value = '';
+						$(this).css('color', '#555');
+					}
+				});
+				$(this).blur(function () {
+					if (this.value == '') {
+						$(this).css('color', '#808080');
+						this.value = default_value;
+					}
+				});
+			});
+			
+			$("textarea").cleditor({width: 560});
+			
+		});		
+	</script>
+</head>
+<body>
+	<div id="page">
+        <!-- header -->
+        <div id="header">
+            <!-- logo -->
+            <h1 class="logo"><a href="#">Interview It</a></h1>
+            <!-- end logo -->
+        	<div class="header_nav">
+            	<div class="header_nav_ins">
+                	<div class="wrapper">
+                    	<!-- main menu -->
+                    	<ul id="nav">
+                        	<li class="menu_item active">
+                            	<a href="">Главная</a>
+                                <span class="item_shadow"></span>
+                            </li>
+                            <li class="menu_item">
+                            	<a href="">О нас</a>
+                                <span class="item_shadow" style="display: block"></span>
+                            </li>
+                            <li class="menu_item">
+                            	<a href="">История создания</a>
+                                <span class="item_shadow"></span>
+                            </li>
+                        </ul>
+                    	<!-- end main menu -->
+                        
+                        <!-- registration button -->
+                        <a href="" class="registration">Регистрация</a>
+                        <!-- end registration button -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end header -->
+        
+        <!-- user block -->
+        <div class="user_block">
+        	<div class="user_block_left">
+            	<div class="user_block_right">
+                	<!-- login form -->
+                	<div class="login_form logged">
+                    	<div class="user_photo">
+                        	<img alt="" src="img/user_m.jpg" />
+                        </div>
+                        <div class="user_name">
+                        	<a href="" class="user_name_link">Кукучин Виктор</a>
+                        	<a href="" class="quiz_link">Пройти quiz (underline)</a>
+                        </div>
+                        <a href="" class="logout">Вход</a>
+                    </div>
+                	<!-- end login form -->
+                </div>
+            </div>
+        </div>
+        <!-- end user block -->
+        
+        <!-- main -->
+        <div id="main" class="">
+        	<!-- your interview -->
+        	<div class="listing">
+            	<ul>
+                	<!-- one item -->
+                	<li>
+                    	<div class="ins">
+                        	<div class="interview_date">
+                            	23.01.2013
+                            </div>
+                        	<div class="interview_company_logo">
+                            	<img alt="" width="60" height="42" src="img/company_logo2.jpg" />
+                            </div>
+                        	<div class="interview_company_name"><a href="">GlobalLogic</a></div>
+                        	<div class="interview_company_city"><a href="">Днепропетровск</a></div>
+                        	<div class="interview_company_vacancy"><a href="">Senior ruby on rails developer</a></div>
+                        	<div class="interview_questions">
+                            	<span>00</span>
+                                вопросов
+                            </div>
+                        </div>
+                    </li>
+                	<!-- end one item -->
+                </ul>
+                
+                <!-- answer -->
+                <div class="answer">
+                	Компартия Франции на съезде отказалась от изображения серпа и молота на карточках членов партии и переизбрала секретаря, сообщают французские СМИ.
+Съезд прошел с четверга по воскресенье. В последний день активисты 100% голосов переизбрали национальным секретарем 55-летнего сенатора от Парижа Пьера Лорана, который возглавляет партию с 2010 года.
+                </div>
+                <!-- end answer -->
+                
+                <!-- comment -->
+                <div class="comment">
+                	<div class="user_left">
+                    	<img alt="" width="55" height="58" src="img/user_m.jpg" />
+                        <a href="">Имя ответчика</a>
+                    </div>
+                    <div class="comment_right">
+                    	 <div class="comment_txt">
+                         	понедельник, 11 февраля, официальный южнокорейский представитель заявил, что текущая неделя покажет, возможно ли проведение Северной Кореей третьего ядерного испытания.Как сообщают южнокорейские СМИ, в КНДР "уже завершена вся необходимая подготовка к испытанию и все ждут только приказа сверху".</div>
+                         <!-- tools -->
+                         <div class="comment_tools">
+                         	<div class="ins">
+                            	<ul class="like_dislike">
+                                	<li><a href="" class="like">55</a></li>
+                            		<li><a href="" class="dislike">23</a></li>
+                                </ul>    
+                                <div class="was_added">Добавлен: <span>21:12 21.12.2012</span></div>
+                            </div>
+                         </div>
+                         <!-- end tools -->
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!-- end comment -->
+
+                <!-- comment -->
+                <div class="comment">
+                	<div class="user_left">
+                    	<img alt="" width="55" height="58" src="img/user_m.jpg" />
+                        <a href="">Имя ответчика</a>
+                    </div>
+                    <div class="comment_right">
+                    	 <div class="comment_txt">
+                         	понедельник, 11 февраля, официальный южнокорейский представитель заявил, что текущая неделя покажет, возможно ли проведение Северной Кореей третьего ядерного испытания.Как сообщают южнокорейские СМИ, в КНДР "уже завершена вся необходимая подготовка к испытанию и все ждут только приказа сверху".</div>
+                         <!-- tools -->
+                         <div class="comment_tools">
+                         	<div class="ins">
+                            	<ul class="like_dislike">
+                                	<li><a href="" class="like">55</a></li>
+                            		<li><a href="" class="dislike">23</a></li>
+                                </ul>    
+                                <div class="was_added">Добавлен: <span>21:12 21.12.2012</span></div>
+                            </div>
+                         </div>
+                         <!-- end tools -->
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!-- end comment -->
+
+                <!-- comment -->
+                <div class="comment">
+                	<div class="user_left">
+                    	<img alt="" width="55" height="58" src="img/user_m.jpg" />
+                        <a href="">Имя ответчика</a>
+                    </div>
+                    <div class="comment_right">
+                    	 <div class="comment_txt">
+                         	понедельник, 11 февраля, официальный южнокорейский представитель заявил, что текущая неделя покажет, возможно ли проведение Северной Кореей третьего ядерного испытания.Как сообщают южнокорейские СМИ, в КНДР "уже завершена вся необходимая подготовка к испытанию и все ждут только приказа сверху".</div>
+                         <!-- tools -->
+                         <div class="comment_tools">
+                         	<div class="ins">
+                            	<ul class="like_dislike">
+                                	<li><a href="" class="like">55</a></li>
+                            		<li><a href="" class="dislike">23</a></li>
+                                </ul>    
+                                <div class="was_added">Добавлен: <span>21:12 21.12.2012</span></div>
+                            </div>
+                         </div>
+                         <!-- end tools -->
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!-- end comment -->
+                
+                <!-- add comment -->
+                <div class="post_comment">
+                    <form action="">
+                        <h2>Your answer</h2>
+                        <div class="textarea_block">
+                        	<textarea></textarea>
+                        </div>
+                        <div class="field">
+                        	<label>Name</label><input class="text_inp" type="text" placeholder="Name" />
+                        </div>
+                        <div class="field">
+	                        <label>E-mail</label><input class="text_inp" type="text" placeholder="E-mail" />
+                        </div>    
+                        <input type="submit" class="post_but" value="Post" />
+                    </form>
+                </div>    
+                <!-- end add comment -->
+
+            </div>
+            <!--  end listing -->
+
+
+                
+        </div>
+        <!-- end main -->
+        
+        <div id="empty"></div>
+        <div id="footer">
+        	<div class="footer_ins">&nbsp;</div>
+        </div>
+    </div>
+
+<!-- feedback -->
+<div class="feedback_form">
+	<a href="" class="feedback_link"><span>Напишите свой отзыв, мы его рассмотрим!</span></a>
+    <div class="fbd_form">
+    	<textarea placeholder="Введите текст сообщения..."></textarea>
+        <input type="text" class="text_inp" placeholder="E-mail" />
+        <button>Отправить</button>
+    </div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$(".feedback_link").toggle(
+			function(){
+				$(this).animate({
+					'width': 260
+				}).addClass("feedback_header");
+				$(".fbd_form").delay(500).slideDown();
+				return false
+			},
+			function(){
+				$(".fbd_form").slideUp();
+				$(this).delay(500).animate({
+					'width': 39
+				},function(){$(this).removeClass("feedback_header")});
+				
+				return false
+			}
+		);
+	});		
+</script>
+
+</body>
+</html>
